@@ -20,25 +20,10 @@ public class Player : MonoBehaviour
         speed = distance / time;
     }
 
-
-    //private void FixedUpdate()
-    //{
-    //    if (!hasGameStarted) return;
-
-    //    Vector3 temp = new Vector3(Input.GetAxis("Horizontal") * speed * 2f, 0, speed) * Time.fixedDeltaTime;
-    //    transform.Translate(temp);
-    //    temp = transform.position;
-    //    if (temp.x > xPos)
-    //        temp.x = xPos;
-    //    if (temp.x < -xPos)
-    //        temp.x = -xPos;
-    //    transform.position = temp;
-    //}
-
     private void FixedUpdate()
     {
         if (!hasGameStarted) return;
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
             Vector3 temp = new Vector3(Input.GetTouch(0).deltaPosition.x, 0, speed) * Time.fixedDeltaTime;
 
@@ -50,8 +35,6 @@ public class Player : MonoBehaviour
                 temp.x = -xPos;
             transform.position = temp;
         }
-        //Vector3 temp = new Vector3(Input.GetAxis("Horizontal") * speed * 2f, 0, speed) * Time.fixedDeltaTime;
-        
     }
 
 }
