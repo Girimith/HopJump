@@ -44,6 +44,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
+                AudioPlayer.Instance.PlayAudio(0);
                 RaycastHit hit;
                 Physics.Raycast(transform.position, Vector3.down, out hit, 4f);
                 GameObject tempBlock = hit.transform.gameObject;
@@ -57,7 +58,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Diamond"))
+        if(other.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
             GameManager.instance.UpdateDiamond();
